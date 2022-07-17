@@ -33,7 +33,7 @@
 
 ## Flex容器的属性
 
-### 1. flex-direction：设置元素的排列方向
+### 1. `flex-direction`：设置元素的排列方向
 
 - `row`：从左向右
 
@@ -66,7 +66,7 @@
 }
 ```
 
-### 2.flex-wrap：使容器内的元素换行
+### 2.`flex-wrap`：使容器内的元素换行
 
 - `noewrap`：不换行（会进行缩放）
 
@@ -89,7 +89,7 @@
 flex-wrap: wrap-reverse;
 ```
 
-### 3.justify-content：设置元素在主轴上的对齐方式
+### 3.`justify-content`：设置元素在主轴上的对齐方式
 
 - `flex-start`：默认 左对齐（上对齐）
 
@@ -109,7 +109,7 @@ flex-wrap: wrap-reverse;
 
 - `space-around`：元素两边平均等分剩余空白部分，最左或最右和元素之间的距离是`1:2`
 
-  ![image-20220710210112636](./images/image-20220710210112636.png)
+  ![image-20220717172915905](./images/image-20220717172915905.png)
   
   ```css
   /* 
@@ -125,43 +125,356 @@ flex-wrap: wrap-reverse;
   
   
 
-### 4.align-items：设置元素在交叉轴上的对齐方式
-
-- `flex-start`：在交叉轴上向起点位置（向上/向左）对齐
-
-  ![image-20220717155550256](C:\Users\15970\Desktop\Flex布局\images\image-20220717155550256.png)
-
-- `flex-end`：在交叉轴上向终点位置（向下/向右）对齐
-
-  ![image-20220717155612996](C:\Users\15970\Desktop\Flex布局\images\image-20220717155612996.png)
-
-- `center`：居中对齐
-
-  ![image-20220717155632547](C:\Users\15970\Desktop\Flex布局\images\image-20220717155632547.png)
-
-- `baseline`：保证元素中的文字在同一条基准线（保证每个文字都在同一条线上）
-
-  ![image-20220717155933187](C:\Users\15970\Desktop\Flex布局\images\image-20220717155933187.png)
+### 4.`align-items`：设置元素在交叉轴上的对齐方式
 
 - `stretch`（默认）：当元素的`高度没有设置`，则元素的高度会`拉伸`至与容器高度一致
 
-  ![image-20220717151926999](C:\Users\15970\Desktop\Flex布局\images\image-20220717151926999.png)
+![image-20220717151926999](./images/image-20220717151926999.png)
+
+- `flex-start`：在交叉轴上向起点位置（向上/向左）对齐
+
+  ![image-20220717155550256](./images/image-20220717155550256.png)
+
+- `flex-end`：在交叉轴上向终点位置（向下/向右）对齐
+
+  ![image-20220717155612996](./images/image-20220717155612996.png)
+
+- `center`：居中对齐
+
+  ![image-20220717155632547](./images/image-20220717155632547.png)
+
+- `baseline`：保证元素中的文字在同一条基准线（保证每个文字都在同一条线上）
+
+  ![image-20220717155933187](./images/image-20220717155933187.png)
 
 ```css
 /* 
  * 设置容器中元素在交叉轴上的对齐方式
  * stretch: 默认当元素的高度没有设置，则元素的高度会拉伸至与容器高度一致
  * flex-start: 在交叉轴上向起点位置（向上/向左）对齐
+ * flex-end: 在交叉轴上向起点位置（向下/向右）对齐
  * center: 居中对齐
+ * baseline: 保证元素中的文字在同一条基准线（保证每个文字都在同一条线上）
  */
 align-items: baseline;
 ```
 
-### 5.align-content：设置轴线的对齐方式（轴线当做元素）
+### 5.`align-content`：设置轴线的对齐方式（轴线当做元素）
 
-- `flex-start`
-- `flex-end`
-- `center`
-- `stretch`
-- `space-between`
-- `space-around`
+- `none`：默认 两条轴线分开分布，空白部分等分
+
+  ![image-20220717172657730](./images/image-20220717172657730.png)
+
+- `flex-start`：向左对齐
+
+  ![image-20220717171648241](./images/image-20220717171648241.png)
+
+- `flex-end`：向右对齐
+
+  ![image-20220717171710422](./images/image-20220717171710422.png)
+
+- `center`：居中
+
+  ![image-20220717171402707](./images/image-20220717171402707.png)
+
+- `stretch`：当宽度`width没有设置`的时候，轴线会被拉伸
+
+  ![image-20220717171939979](./images/image-20220717171939979.png)
+
+- `space-between`：两端对齐，元素之间的空白等比切分
+
+  ![image-20220717172129586](./images/image-20220717172129586.png)
+
+- `space-around`：轴线两边的空白等比切分 
+
+  ![image-20220717172605293](./images/image-20220717172605293.png)
+
+```css
+/* 
+ * 当轴线超过一条的时候，flex容器可以把多条轴线视为元素对待，可以进行对齐
+ * center: 居中
+ * flex-start: 向左对齐
+ * flex-end: 向右对齐
+ * stretch: 当宽度width没有设置的时候，轴线可以被拉伸
+ * space-between: 两端对齐，元素之间的空白等比切分
+ * space-around: 轴线两边的空白等比切分 
+ */
+align-content: space-around;
+```
+
+## Flex元素的属性
+
+### 1.`order`：控制元素的顺序
+
+> order: 用于设置flex容器内部的每个元素的排列顺序，默认是**0**。排序规则`由小到大`
+
+```css
+.green {
+	background-color: green;
+	order: 0;
+}
+
+.red {
+	background-color: red;
+	order: 0;
+}
+
+.blue {
+	background-color: blue;
+	order: 0;
+}
+```
+
+![image-20220717174010902](./images/image-20220717174010902.png)
+
+```css
+.green {
+	background-color: green;
+	order: 3;
+}
+
+.red {
+	background-color: red;
+	order: 2;
+}
+
+.blue {
+	background-color: blue;
+	order: 1;
+}
+```
+
+![image-20220717174051641](./images/image-20220717174051641.png)
+
+### 2.flex-grow：控制元素放大比例
+
+> flex-gorw: 用于设置元素的放大比例，默认为 **0**。如果为0，则不放大
+
+- flex-grow全部设置为 `0` 不放大
+
+  ```css
+  .green {
+  	background-color: green;
+  	flex-grow: 0;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-grow: 0;
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-grow: 0;
+  }
+  ```
+
+![image-20220717174846919](./images/image-20220717174846919.png)
+
+- flex-grow只有一个设置为1，则独占空白部分
+
+  ```css
+  .green {
+  	background-color: green;
+  	flex-grow: 0;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-grow: 1; /* 独占空白部分 */
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-grow: 0;
+  }
+  ```
+
+![image-20220717180102783](./images/image-20220717180102783.png)
+
+- flex-grow比例为`1:1:1`，各元素按照`1:1:1`的比例占用空白部分
+
+  ```css
+  .green {
+  	background-color: green;
+  	flex-grow: 1;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-grow: 1;
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-grow: 1;
+  }
+  ```
+
+![image-20220717180227746](./images/image-20220717180227746.png)
+
+- flex-grow比例为`1:2:1`，各元素按照`1:2:1`的比例占用空白部分
+
+  ```css
+  .green {
+  	background-color: green;
+  	flex-grow: 1;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-grow: 2;
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-grow: 1;
+  }
+  ```
+
+  ![image-20220717180007052](./images/image-20220717180007052.png)
+
+### 3.flex-shrink：控制元素缩小比例
+
+> flex-shrink: 用于设置元素的缩小比例，默认为 1。如果为0，则不进行缩放
+
+- flex-grow全部默认设置为 `1` ，进行缩小
+
+  ```css
+  .green {
+  	background-color: green;
+  	flex-shrink: 1;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-shrink: 1;
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-shrink: 1;
+  }
+  ```
+
+  ![image-20220717182024931](./images/image-20220717182024931.png)
+
+- flex-grow设置为0，则不进行缩小
+
+  ```css
+  .green {
+  	background-color: green;
+  	flex-shrink: 1;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-shrink: 0;
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-shrink: 1;
+  }
+  ```
+
+  ![image-20220717182000705](./images/image-20220717182000705.png)
+
+- flex-grow设置为0，则全部不缩小，多余部分被挤压出去
+
+  ```
+  .green {
+  	background-color: green;
+  	flex-shrink: 0;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-shrink: 0;
+  }
+  
+  .blue {
+  	background-color: blue;
+  	flex-shrink: 0;
+  }
+  ```
+
+![image-20220717181546999](./images/image-20220717181546999.png)
+
+### 4.flex-basis：设置元素固定或自动空间的占比
+
+> flex-basis: 用于设置元素的放大或缩小 
+
+- 设置的像素比元素原有宽度大，会进行放大
+
+  ```css
+  .green {
+  	background-color: green;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-basis: 300upx;
+  }
+  
+  .blue {
+  	background-color: blue;
+  }
+  ```
+
+  ![image-20220717183007159](./images/image-20220717183007159.png)
+
+- 设置的像素比元素原有宽度小，会进行缩小
+
+  ```css
+  .green {
+  	background-color: green;
+  }
+  
+  .red {
+  	background-color: red;
+  	flex-basis: 100upx;
+  }
+  
+  .blue {
+  	background-color: blue;
+  }
+  ```
+
+  ![image-20220717183043624](./images/image-20220717183043624.png)
+
+### 5.align-self：重写justify-items父属性
+
+- `auto`：默认，表示继承父级元素的属性
+
+  ![image-20220717184028856](./images/image-20220717184028856.png)
+
+- `strach`：当元素的高度没有设置，则元素的高度会拉伸至与容器高度一致
+
+  ![image-20220717190057407](./images/image-20220717190057407.png)
+
+- `flex-start`：向上对齐
+
+  ![image-20220717184202448](./images/image-20220717184202448.png)
+
+- `flex-end`：向下对齐
+
+  ![image-20220717184259332](./images/image-20220717184259332.png)
+
+- `center`：居中对齐
+
+  ![image-20220717184340385](./images/image-20220717184340385.png)
+
+```css
+/* 
+ * 设置容器中元素在交叉轴上的对齐方式
+ * auto: 默认
+ * stretch: 当元素的高度没有设置，则元素的高度会拉伸至与容器高度一致
+ * flex-start: 在交叉轴上向起点位置（向上/向左）对齐
+ * flex-end: 在交叉轴上向起点位置（向下/向右）对齐
+ * center: 居中对齐
+ * baseline: 保证元素中的文字在同一条基准线（保证每个文字都在同一条线上）
+ */
+align-items: baseline;
+```
+

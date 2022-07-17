@@ -16,9 +16,18 @@
 	 */
 	flex-wrap: wrap;
 	
-	align-content: /* stretch */;
+	/* 
+	 * 当轴线超过一条的时候，flex容器可以把多条轴线视为元素对待，可以进行对齐
+	 * center: 居中
+	 * flex-start: 向左对齐
+	 * flex-end: 向右对齐
+	 * stretch: 当宽度width没有设置的时候，轴线可以被拉伸
+	 * space-between: 两端对齐，元素之间的空白等比切分
+	 * space-around: 轴线两边的空白等比切分 
+	 */
+	align-content: space-around;
 	
-	height: 700upx;
+	height: 600upx;
 	background-color: gray;
 }
 

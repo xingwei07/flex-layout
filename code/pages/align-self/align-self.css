@@ -34,6 +34,14 @@
 
 .red {
 	background-color: red;
+	/* 
+	 * 重写容器中元素在交叉轴上的对齐方式
+	 * stretch: 默认当元素的高度没有设置，则元素的高度会拉伸至与容器高度一致
+	 * flex-start: 在交叉轴上向起点位置（向上/向左）对齐
+	 * flex-end: 在交叉轴上向起点位置（向下/向右）对齐
+	 * center: 居中对齐
+	 */
+	align-self: stretch;
 }
 
 .blue {

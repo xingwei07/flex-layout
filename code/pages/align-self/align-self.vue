@@ -26,5 +26,5 @@
 </script>
 
 <style>
-	@import url("./justify-items.css");
+	@import url("./align-self.css");
 </style>
