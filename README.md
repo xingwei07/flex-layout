@@ -70,15 +70,15 @@
 
 - `noewrap`：不换行（会进行缩放）
 
-  ![image-20220710204606547](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710204606547.png)
+  ![image-20220710204606547](./images/image-20220710204606547.png)
 
 - `wrap`：换行
 
-  ![image-20220710204659447](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710204659447.png)
+  ![image-20220710204659447](./images/image-20220710204659447.png)
 
 - `wrap-reverse`：逆向换行
 
-![image-20220710204944867](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710204944867.png)
+![image-20220710204944867](./images//image-20220710204944867.png)
 
 ```css
 /* 
@@ -97,16 +97,71 @@ flex-wrap: wrap-reverse;
 
 - `flex-end`：右对齐（下对齐）
 
-  ![image-20220710210009738](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710210009738.png)
+  ![image-20220710210009738](./images/image-20220710210009738.png)
 
 - `center`：居中对齐
 
-  ![image-20220710210029291](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710210029291.png)
+  ![image-20220710210029291](./images/image-20220710210029291.png)
 
 - `space-between`：两端对齐，空白均匀地填充在成员之间
 
-  ![image-20220710210053271](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710210053271.png)
+  ![image-20220710210053271](./images/image-20220710210053271.png)
 
 - `space-around`：元素两边平均等分剩余空白部分，最左或最右和元素之间的距离是`1:2`
 
-  ![image-20220710210112636](C:\Users\15970\AppData\Roaming\Typora\typora-user-images\image-20220710210112636.png)
+  ![image-20220710210112636](./images/image-20220710210112636.png)
+  
+  ```css
+  /* 
+   * 设置元素在主轴上的对齐方式
+   * flex-start: 默认 左对齐
+   * flex-end: 右对齐
+   * center: 居中对齐
+   * space-between: 两端对齐，空白均匀地填充在成员之间
+   * space-around: 元素两边平均等分剩余空白间隙部分，最左或最右和元素之间距离是1：2
+   */
+  justify-content: flex-end;
+  ```
+  
+  
+
+### 4.align-items：设置元素在交叉轴上的对齐方式
+
+- `flex-start`：在交叉轴上向起点位置（向上/向左）对齐
+
+  ![image-20220717155550256](C:\Users\15970\Desktop\Flex布局\images\image-20220717155550256.png)
+
+- `flex-end`：在交叉轴上向终点位置（向下/向右）对齐
+
+  ![image-20220717155612996](C:\Users\15970\Desktop\Flex布局\images\image-20220717155612996.png)
+
+- `center`：居中对齐
+
+  ![image-20220717155632547](C:\Users\15970\Desktop\Flex布局\images\image-20220717155632547.png)
+
+- `baseline`：保证元素中的文字在同一条基准线（保证每个文字都在同一条线上）
+
+  ![image-20220717155933187](C:\Users\15970\Desktop\Flex布局\images\image-20220717155933187.png)
+
+- `stretch`（默认）：当元素的`高度没有设置`，则元素的高度会`拉伸`至与容器高度一致
+
+  ![image-20220717151926999](C:\Users\15970\Desktop\Flex布局\images\image-20220717151926999.png)
+
+```css
+/* 
+ * 设置容器中元素在交叉轴上的对齐方式
+ * stretch: 默认当元素的高度没有设置，则元素的高度会拉伸至与容器高度一致
+ * flex-start: 在交叉轴上向起点位置（向上/向左）对齐
+ * center: 居中对齐
+ */
+align-items: baseline;
+```
+
+### 5.align-content：设置轴线的对齐方式（轴线当做元素）
+
+- `flex-start`
+- `flex-end`
+- `center`
+- `stretch`
+- `space-between`
+- `space-around`
